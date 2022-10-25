@@ -16,9 +16,9 @@ $('td').each(function(i, elem) {
     if ($(elem).attr("style")=="border-bottom:1px solid #e3e3e3; width:260px") {
         const groupName = $(elem).find('b:first').text().replace(/[-\,(].*/g, "");
         const locationName = $(elem).find('h4').text().replace(/[-\,(].*/g, "");
-        const addressLine1 = $(elem).text().split('</b><br />')[0].split('</b><br />\t\t\t\t\t\t')[0].split('\n\t\t\t\t\t\t')[1].trim();
-        const addressLine2 = $(elem).text().split('</b><br />')[0].split('</b><br />\t\t\t\t\t\t')[0].split('\n\t\t\t\t\t\t')[2].trim();
-        const address = addressLine1 + addressLine2;
+        //const addressLine1 = $(elem).text().split('</b><br />')[0].split('</b><br />\t\t\t\t\t\t')[0].split('\n\t\t\t\t\t\t')[1].trim();
+        //const addressLine2 = $(elem).text().split('</b><br />')[0].split('</b><br />\t\t\t\t\t\t')[0].split('\n\t\t\t\t\t\t')[2].trim();
+        const address = $(elem).html().replace(/[-,(].*/g, "").split("\n\t\t\t\t\t\t").slice(1, 2);
         const wheelChair= $(elem).text().includes('Wheelchair access');
         const notes = $(elem).text().split('</b><br />')[0].split('</b><br />\t\t\t\t\t\t')[0].split('\n\t\t\t\t\t\t')[4].trim();
         
